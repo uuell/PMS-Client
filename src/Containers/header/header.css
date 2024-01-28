@@ -1,0 +1,44 @@
+.PMS__header {
+    background: url(../../assets/background_urs.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PMS__header-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.PMS__header-heading p {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+    text-wrap: wrap;
+    text-align: center;
+}
+
+.PMS__header-login,
+.PMS__header-signup {
+    border: none;
+    background-color: #f4ba1cff;
+    padding: .6rem 1rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 1rem;
+
+    cursor: pointer;
+}
+.PMS__header-login {
+    background-color: #003366;
+}
+

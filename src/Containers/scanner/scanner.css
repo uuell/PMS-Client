@@ -1,0 +1,16 @@
+.PMS__scanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#reader {
+    height: 400px;
+    width: 400px;
+    border: solid 1px;
+}
+#reader video{
+    height: 400px;
+}

@@ -1,0 +1,37 @@
+.PMS__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366;
+    padding: .3rem 5rem .3rem 5rem;
+    position: fixed;
+    width: 100%;
+}
+
+.PMS__navbar-logo img {
+    height: 50px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.PMS__navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+.PMS__navbar-links li {
+    color: #fff;
+    margin: 1rem;
+    cursor: pointer;
+}
+.PMS__navbar-links li:hover {
+    color: #f4ba1cff;
+}
+
+.PMS__navbar-URS p {
+    color: #f4ba1cff;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+}
