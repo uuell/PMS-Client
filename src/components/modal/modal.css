@@ -1,34 +1,50 @@
 .PMS__modal {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-color: rgba(43, 43, 43, 0.596);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.PMS__modal-buttons {
+/* LOGIN, SIGNUP*/
+.PMS__modal_login, .PMS__modal_signup {
+    position: relative;
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 3rem 0;
+}
+.PMS__modal_login .cross, .PMS__modal_signup .cross{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 20rem;
-    width: 20rem;
-    border-radius: 5px;
-    background-color: #f0f0f0;
+    height: 30px;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+.PMS__modal_login-inputs, .PMS__modal_signup-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.PMS__modal_login input, .PMS__modal_signup input {
+    margin: 1rem;
+    outline: none;
+    width: 200px;
+}
+.PMS__modal_login-buttons, .PMS__modal_signup-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.PMS__modal-checkin {
+.PMS__modal_login-buttons button, .PMS__modal_signup-buttons button {
     margin: 1rem;
-    background-color: #3dc023;
-    border: none;
-    cursor: pointer;
-    padding: .5rem 1rem;
-    border-radius: 5px;
-}
-.PMS__modal-checkout {
-    margin: 1rem;
-    background-color: #c02323;
+    background-color: var(--clr-yellow);
+    font-weight: 500;
     border: none;
     cursor: pointer;
     padding: .5rem 1rem;

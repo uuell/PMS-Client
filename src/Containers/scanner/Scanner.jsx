@@ -4,9 +4,8 @@ import { Modal } from "../../components/index";
 
 import "./scanner.css"
 export default function Scanner() {
-  console.log("twotime");
   const [scanResult, setScanResult] = useState({
-    text: "",
+    text: null,
     result: "",
     done: false
   });
@@ -24,7 +23,7 @@ export default function Scanner() {
       scanner.clear();
       setScanResult(() => {
         return { text: decodedText, result: decodedResult, done: true };
-      });
+      },);
     }
 
     scanner.render(onScanSuccess);
@@ -32,13 +31,43 @@ export default function Scanner() {
     return () => {
       scanner.clear();
     };
-  }, []);
+  });
 
   console.log(scanResult);
 
+  useEffect(() => {
+    
+    const verifyReservation = async () => {
+      if (scanResult.done) {
+        const response =  await fetch("http://localhost:4000/api/verifyReservation", {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json"
+          },
+          body: scanResult.text,
+        });
+
+        console.log(response);
+
+        if (response.ok) {
+          alert("reservation succesfull");
+          const responseJSON = await response.json();
+          console.log(responseJSON);
+        } else {
+          alert("reservation Expired");
+          const responseJSON = await response.json();
+          console.log(responseJSON);
+        }
+      }
+    }
+
+    verifyReservation();
+  }, [scanResult]);
+
   return (
     <div className="PMS__scanner">
-      {scanResult.done ? <Modal /> : <div id="reader"></div>}
+      <div id="reader"></div>
+      {scanResult.done && <Modal />}
     </div>
   );
 }

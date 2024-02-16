@@ -13,14 +13,16 @@
 
 .PMS__header-heading {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .PMS__header-heading p {
     color: #fff;
     font-size: 50px;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 70px;
     text-wrap: wrap;
     text-align: center;
 }

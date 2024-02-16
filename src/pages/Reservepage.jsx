@@ -1,7 +1,8 @@
+import { Reservation } from "../Containers";
 export default function Reservepage() {
     return(
         <>
-            <h1>Reserve</h1>
+            <Reservation />
         </>
     )
 }
