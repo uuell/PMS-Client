@@ -1,14 +1,19 @@
 import cross from  "../../../assets/cross-svgrepo-com.svg";
+import logo from "../../../assets/urslogo.png";
+
 
 export default function Login({ handleModal, handleChange, handleSubmit, formData }) {
     return (
         <form className="PMS__modal_login" onSubmit={handleSubmit}>
-            <button onClick={handleModal}>
-                <img className="cross" src={cross} alt="cross" />
-            </button>
+            <img onClick={handleModal} className="cross" src={cross} alt="cross" />
+            <div className="PMS__modal-logo-container">
+                <img src={logo}  alt="Urs Logo" className="PMS__modal-logo" />
+            </div>
             <div className="PMS__modal_login-inputs">
-                <label htmlFor="login-student_id">Student ID: 
+                <div className="PMS__modal_login-container">
+                    <label htmlFor="login-student_id"><b>Student ID:</b></label>
                     <input 
+                        autoFocus
                         id="login-student_id" 
                         name="student_id" 
                         placeholder="Student ID" 
@@ -16,10 +21,10 @@ export default function Login({ handleModal, handleChange, handleSubmit, formDat
                         onChange={handleChange}
                         value={formData.student_id}
                         required 
-
                     />
-                </label>
-                <label htmlFor="login-password">Password: 
+                </div> 
+                <div className="PMS__modal_login-container">
+                    <label htmlFor="login-password"><b>Password:</b></label>
                     <input 
                         id="login-password" 
                         name="password" 
@@ -30,7 +35,7 @@ export default function Login({ handleModal, handleChange, handleSubmit, formDat
                         required 
 
                     />
-                </label>
+                </div>
             </div>
             <div className="PMS__modal_login-buttons">
                 <button type="submit">Login</button>

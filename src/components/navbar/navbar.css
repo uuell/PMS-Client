@@ -6,6 +6,7 @@
     padding: .3rem 5rem .3rem 5rem;
     position: fixed;
     width: 100%;
+    z-index: 100;
 }
 
 .PMS__navbar-logo img {
@@ -20,18 +21,34 @@
     align-items: center;
     height: 5rem;
 }
-.PMS__navbar-links li {
+.PMS__navbar-links a {
     color: #fff;
     margin: 1rem;
     cursor: pointer;
 }
-.PMS__navbar-links li:hover {
+.PMS__navbar-links a:hover {
     color: #f4ba1cff;
 }
 
-.PMS__navbar-URS p {
-    color: #f4ba1cff;
-    font-weight: 700;
-    font-size: 20px;
+.PMS__navbar-login,
+.PMS__navbar-signup {
+    border: none;
+    background-color: #f4ba1cff;
+    padding: .4rem .8rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 1rem;
+
+    transition: all 500ms;
     cursor: pointer;
+}
+.PMS__navbar-login:hover,
+.PMS__navbar-signup:hover {
+    transform: scale(1.1);
+}
+.PMS__navbar-login {
+    border: solid 1px;
+    background-color: #003366;
 }

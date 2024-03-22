@@ -4,12 +4,60 @@
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    background-color: #001E3D;
+
 }
 
 #reader {
     height: 400px;
     width: 400px;
-    border: solid 1px;
+    border: solid 2px;
+    /* background-color: #001E3D; */
+    background: #0e3364;
+    color: #fff;
+    border-radius: 10px;
+
+
+    /* ff 3.6+ */
+    background: -moz-linear-gradient(90deg, rgba(31, 17, 206, 1) 0%, rgba(229, 43, 43, 1) 100%); 
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-linear-gradient(90deg, rgba(31, 17, 206, 1) 0%, rgba(229, 43, 43, 1) 100%);
+
+    /* opera 11.10+ */
+    background: -o-linear-gradient(90deg, rgba(31, 17, 206, 1) 0%, rgba(229, 43, 43, 1) 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E52B2B', endColorstr='#1F11CE', GradientType=0 );
+
+    /* ie 10+ */
+    background: -ms-linear-gradient(90deg, rgba(31, 17, 206, 1) 0%, rgba(229, 43, 43, 1) 100%);
+
+    /* global 94%+ browsers support */
+    /* background: linear-gradient(90deg, rgba(31, 17, 206, 1) 0%, rgba(229, 43, 43, 1) 100%); */
+    
+}
+#reader__dashboard_section_csr button {
+    background-color: #f4ba1cff;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: .9rem;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+#html5-qrcode-button-file-selection {
+    background-color: #f4ba1cff;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: .9rem;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 #reader video{
     height: 400px;

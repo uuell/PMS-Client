@@ -1,3 +1,28 @@
 .PMS__reservation {
-    padding: 89px;
+    padding: 95px;
+    position: relative;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001E3D;
+}
+
+
+
+.PMS__reservation-buttons {
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 3rem;
+    cursor: pointer;
+    background-color: #f4ba1cff;
+    transition: all 500ms;
+}
+.PMS__reservation-buttons:hover {
+    transform: scale(1.1);
 }

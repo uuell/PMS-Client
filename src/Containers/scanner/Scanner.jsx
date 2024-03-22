@@ -1,14 +1,46 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useState, useEffect } from "react";
-import { Modal } from "../../components/index";
+import { ScannerModal } from "../../components/index";
 
-import "./scanner.css"
+import "./scanner.css";
 export default function Scanner() {
+  const [responseData, setResponseData] = useState({});
   const [scanResult, setScanResult] = useState({
     text: null,
     result: "",
-    done: false
+    done: false,
+    showModal: false,
   });
+
+  const verifyReservation = async (text) => {
+    const response = await fetch(
+      "http://localhost:4000/api/verifyReservation",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: text,
+      }
+    );
+
+    console.log(response);
+
+    if (response.ok) {
+      const responseJSON = await response.json();
+      setResponseData(responseJSON);
+      setScanResult((prev) => {
+        return {
+          ...prev,
+          done: false,
+          showModal: true,
+        };
+      });
+    } else {
+      const responseJSON = await response.json();
+      alert(responseJSON);
+    }
+  };
 
   useEffect(() => {
     const scanner = new Html5QrcodeScanner("reader", {
@@ -20,10 +52,15 @@ export default function Scanner() {
     });
 
     function onScanSuccess(decodedText, decodedResult) {
-      scanner.clear();
+      scanner.clear()
       setScanResult(() => {
-        return { text: decodedText, result: decodedResult, done: true };
-      },);
+        return {
+          text: decodedText,
+          result: decodedResult,
+          done: true,
+          showModal: false,
+        };
+      });
     }
 
     scanner.render(onScanSuccess);
@@ -35,39 +72,56 @@ export default function Scanner() {
 
   console.log(scanResult);
 
-  useEffect(() => {
-    
-    const verifyReservation = async () => {
-      if (scanResult.done) {
-        const response =  await fetch("http://localhost:4000/api/verifyReservation", {
-          method: "POST",
-          headers: {
-            "content-Type": "application/json"
-          },
-          body: scanResult.text,
-        });
+  if (scanResult.done) {
+    verifyReservation(scanResult.text)
+  }
 
-        console.log(response);
+  async function handleSubmit(e) {
+    // e.preventDefault();
+    if (responseData.parked) {
+      alert("leaving parking space");
 
-        if (response.ok) {
-          alert("reservation succesfull");
-          const responseJSON = await response.json();
-          console.log(responseJSON);
-        } else {
-          alert("reservation Expired");
-          const responseJSON = await response.json();
-          console.log(responseJSON);
-        }
+      const response = await fetch("http://localhost:4000/api/leavingParking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(responseData),
+      });
+
+      if (response.ok) {
+        const responseJSON = await response.json();
+        alert(responseJSON);
+        sessionStorage.setItem("reserved", false);
+        sessionStorage.setItem("qrcode_image", " ");
+      }
+    } else {
+      alert("parking in");
+
+      const response = await fetch("http://localhost:4000/api/parking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(responseData),
+      });
+
+      if (response.ok) {
+        const responseJSON = await response.json();
+        alert(responseJSON);
       }
     }
-
-    verifyReservation();
-  }, [scanResult]);
+  }
 
   return (
     <div className="PMS__scanner">
       <div id="reader"></div>
-      {scanResult.done && <Modal />}
+      {scanResult.showModal && (
+        <ScannerModal
+          handleSubmit={handleSubmit}
+          parked={responseData.parked}
+        />
+      )}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { Link } from "react-router-dom";
 
 import { Modal } from "../../components/index";
 import "./header.css";
@@ -42,12 +43,10 @@ export default function Header() {
                 <p><span style={{color: "#0740b6", fontSize: "45px"}}>Parking slot</span> <span style={{color: "#f4ba1cff", fontSize: "45px"}}> Monitoring System</span></p>
             </div>
             <div className="PMS__header-buttons">
-                <button className="PMS__header-login" onClick={() => handleModal("login")}>Login</button>
-                <button className="PMS__header-signup" onClick={() => handleModal("signup")}>Signup</button>
+                <button className="PMS__header-scan"><Link to="/scan" className="Link">SCAN QR</Link></button>
             </div>
 
             { state.login && <Modal category="login" showModal={state.showModal} handleModal={handleModal} /> }
-            { state.signup && <Modal category="signup" showModal={state.showModal} handleModal={handleModal} /> }
 
         </div>
     )

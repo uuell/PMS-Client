@@ -27,20 +27,19 @@
     text-align: center;
 }
 
-.PMS__header-login,
-.PMS__header-signup {
+.PMS__header-scan {
     border: none;
-    background-color: #f4ba1cff;
-    padding: .6rem 1rem;
+    padding: .7rem 2rem;
     border-radius: 5px;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
     margin: 1rem;
-
     cursor: pointer;
+    background-color:  rgba(0, 0, 0, 0.1);
+    border: solid 2px white;
+    transition: all 500ms;
 }
-.PMS__header-login {
-    background-color: #003366;
+.PMS__header-scan:hover {
+    transform: scale(1.1);
 }
-
