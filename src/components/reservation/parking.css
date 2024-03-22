@@ -1,0 +1,108 @@
+.PMS__parking_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    color: #fff;
+    margin-top: 3rem;
+    height: 598px;
+}
+
+.left-box {
+    height: 100%;
+    width: 115px;
+    border: solid #0e3364 2px;
+    border-right: 0;
+    
+}
+.left-box .box:nth-child(1) {
+    border-top: 0;
+}
+.left-box .box {
+    height: 53px;
+    width: 100px;
+    border: solid #0e3364 2px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.center-box {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 230px;
+    border: solid #0e3364 2px;
+    border-left: 0;
+    border-right: 0;  
+}
+.center-box .inner-left:nth-child(1) {
+    border-top: 0;
+}
+.center-box .inner-left {
+    height: 53px;
+    width: 100px;
+    border: solid #0e3364 2px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    text-align: center;
+    padding: 10px;
+}
+.vertical-line {
+    height: 530px;
+    width: 2px;
+    background-color: #0e3364;
+}
+.center-box .inner-right:nth-child(1) {
+    border-top: 0;
+
+}
+.center-box .inner-right {
+    height: 53px;
+    width: 100px;
+    border: solid #0e3364 2px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    text-align: center;
+    padding: 10px;
+
+
+}
+
+.right-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+
+    width: 115px;
+    border: solid #0e3364 2px;
+    border-left: 0;
+}
+.right-box .box:nth-child(1) {
+    border-top: 0;
+}
+.right-box .box {
+    height: 53px;
+    width: 100px;
+    border: solid #0e3364 2px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    text-align: center;
+    padding: 10px;
+
+
+}
+
+.red {
+    background-color: red;
+}
+.green {
+    background-color: green;
+}

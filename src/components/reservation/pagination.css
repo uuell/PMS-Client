@@ -1,0 +1,36 @@
+.PMS__pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+}
+
+.page-numbers {
+    display: flex;
+}
+.page-numbers button {
+    margin: 0 .2rem;
+    font-size: 16px;
+    font-weight: 600;
+}
+.PMS__pagination button {
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    background-color: var(--clr-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 100ms;
+}
+.arrow-left, .arrow-right {
+    width: 25px;
+}
+
+.PMS__pagination button:active {
+    background-color: var(--clr-bg);
+    border: solid 2px black;
+}

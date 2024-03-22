@@ -1,0 +1,20 @@
+.PMS__admin {
+    padding: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PMS__registrations-container {
+    margin-top: 50px;
+    border: solid 1px black;
+    width: 1200px;
+    /* background-color: var(--clr-bg); */
+
+}
+
+.no-registrations {
+    text-align: center;
+    padding: 2.5rem;
+}
