@@ -49,7 +49,7 @@ export default function Signup({ handleModal, handleChange, handleSubmit, formDa
                 <div className="PMS__modal_signup-container">
                     <label htmlFor="signup-ID">
                         <b>URS ID front and back:</b>
-                        <p className="note"><b>Note:</b> Ensure the size stays under 500kb!&#128522;</p>
+                        <p className="note"><b>Note:</b> Ensure the size stays under 100kb!&#128522;</p>
                     </label>
                     <input 
                         id="signup-ID" 

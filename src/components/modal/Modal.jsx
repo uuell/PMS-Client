@@ -17,30 +17,34 @@ export default function Modal({ category, showModal, handleModal }) {
         password: ""
     });
 
-    const urlParams = new URLSearchParams(formData);
 
     function handleSignUpChange (e) {
       const { name, value, files } = e.target;
 
-      // If it's a file input, set the file directly in the state
-      if ((name === "identificationCardFront" || name === "identificationCardBack") && files && files[0]) {
-        const reader = new FileReader();
+      setSignUpForm(prevState => ({
+        ...prevState,
+        [name]: name === 'identificationCardFront' || name === 'identificationCardBack' ? files[0] : value,
+      }));
 
-        reader.readAsDataURL(files[0]);
+      // // If it's a file input, set the file directly in the state
+      // if ((name === "identificationCardFront" || name === "identificationCardBack") && files && files[0]) {
+      //   const reader = new FileReader();
 
-        reader.onloadend = () => {
-          setSignUpForm({
-            ...signUpForm,
-            [name]: reader.result, // reader.result contains the base64-encoded content
-          });
-        };
-      } else {
-        // If it's a regular input, set the value in the state
-        setSignUpForm({
-          ...signUpForm,
-          [name]: value,
-        });
-      }
+      //   reader.readAsDataURL(files[0]);
+
+      //   reader.onloadend = () => {
+      //     setSignUpForm({
+      //       ...signUpForm,
+      //       [name]: reader.result, // reader.result contains the base64-encoded content
+      //     });
+      //   };
+      // } else {
+      //   // If it's a regular input, set the value in the state
+      //   setSignUpForm({
+      //     ...signUpForm,
+      //     [name]: value,
+      //   });
+      // }
     };
 
     function handleChange(e) {
@@ -55,21 +59,21 @@ export default function Modal({ category, showModal, handleModal }) {
 
     async function handleSubmitSignUp(e) {
 
-        e.preventDefault()
-        const formData = JSON.stringify(signUpForm);
-        // const formData = new FormData();
-        // for (const key in signUpForm) {
-        //   formData.append(key, signUpForm[key]);
-        // }
+        // e.preventDefault()
+        // const formData = JSON.stringify(signUpForm);
+        const signUpFormData = new FormData();
+        for (const key in signUpForm) {
+          signUpFormData.append(key, signUpForm[key]);
+        }
         // console.log(formData);
+        // for (const pair of signUpFormData.entries()) {
+        //   console.log(pair[0], pair[1]);
+        // }
         
         try {
             const response = await fetch('http://localhost:4000/api/registration', {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: formData,
+              body: signUpFormData,
             });
       
             if (response.ok) {
@@ -88,14 +92,15 @@ export default function Modal({ category, showModal, handleModal }) {
     async function handleSubmitLogin(e) {
 
         // e.preventDefault(); 
+        const logInFormData = new FormData();
+        for(const key in formData) {
+          logInFormData.append(key, formData[key]);
+        }
         
         try {
             const response = await fetch('http://localhost:4000/api/authentication', {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: urlParams,
+              body: logInFormData,
             });
 
 
